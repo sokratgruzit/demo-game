@@ -11,9 +11,9 @@ function App() {
   const [selectedBall, setSelectedBall] = useState<any>(null);
   const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
 
-  const handleBallClick = (ball: any, event: React.MouseEvent) => {
-    setSelectedBall(ball);
-
+  const handleBallClick = (event: React.MouseEvent) => {
+    setSelectedBall(event);
+    
     if (event) {
       setContextMenuPosition({ x: event.clientX, y: event.clientY });
     }
@@ -67,9 +67,9 @@ function App() {
         />
         <Suspense fallback={null}>
           <Physics>
-            <Ball position={[-10, 28, 0]} color={"red"} onClick={(event: React.MouseEvent) => handleBallClick(event, event)} />
-            <Ball position={[0, 29, 0]} color={"green"} onClick={(event: React.MouseEvent) => handleBallClick(event, event)} />
-            <Ball position={[10, 30, 0]} color={"blue"} onClick={(event: React.MouseEvent) => handleBallClick(event, event)} />
+            <Ball position={[-10, 28, 0]} color={"red"} onClick={(event: React.MouseEvent) => handleBallClick(event)} />
+            <Ball position={[0, 29, 0]} color={"green"} onClick={(event: React.MouseEvent) => handleBallClick(event)} />
+            <Ball position={[10, 30, 0]} color={"blue"} onClick={(event: React.MouseEvent) => handleBallClick(event)} />
             <Ground />
           </Physics>
         </Suspense>
